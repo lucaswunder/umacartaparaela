@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uma Resposta Para Nós · Lucas</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1c1b18;
+      --muted: #7a7468;
+      --soft: #ccc4b4;
+      --bg: #faf9f6;
+      --cream: #f0ebe1;
+      --accent: #6b4f35;
+      --accent2: #8c6f4a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      line-height: 1.9;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── ENTRY ANIMATION ──────────────────── */
+    body { animation: pageFade 1.2s ease forwards; }
+    @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ─── HERO ─────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 6rem;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, #ddd0c0 0%, var(--bg) 70%);
+      position: relative;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.25s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .hero-eyebrow {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 9vw, 6rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .hero-title em { font-style: italic; color: var(--accent); }
+
+    .hero-sub {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2.5rem;
+    }
+
+    .hero-line {
+      width: 1px;
+      height: 70px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      margin: 3.5rem auto 0;
+    }
+
+    /* ─── LETTER ────────────────────────────── */
+    .letter {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 2rem 2rem 8rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 5rem 0 4rem;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--soft);
+    }
+
+    .divider span {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .letter p {
+      margin-bottom: 1.7rem;
+      color: var(--ink);
+    }
+
+    .letter p em { font-style: italic; }
+    .letter p strong { font-weight: 500; color: var(--accent); }
+
+    .quote {
+      border-left: 2px solid var(--accent);
+      padding: 0.4rem 0 0.4rem 2rem;
+      margin: 3rem 0;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── CLOSING ─────────────────────────────── */
+    .closing {
+      text-align: center;
+      padding: 5rem 0 3rem;
+    }
+
+    .closing .line1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+
+    .closing .line2 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .closing .meta {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 3rem;
+    }
+
+    .closing .love {
+      font-style: italic;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin-top: 0.6rem;
+    }
+
+    .closing .tail {
+      display: block;
+      width: 1px;
+      height: 55px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      margin: 2.5rem auto 0;
+    }
+
+    /* ─── BACK BUTTON AT BOTTOM ──────────────── */
+    .footer-nav {
+      text-align: center;
+      padding: 0 2rem 6rem;
+    }
+
+    .footer-nav a {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .footer-nav a:hover { color: var(--accent); }
+
+    /* ─── PHOTO SLOTS ────────────────────────── */
+    .photo-slot { margin: 4rem 0; }
+    .photo-slot label { display: block; cursor: pointer; }
+    .photo-slot input[type="file"] { display: none; }
+
+    .placeholder {
+      background: var(--cream);
+      border: 1.5px dashed var(--soft);
+      border-radius: 3px;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, background 0.25s;
+    }
+
+    .placeholder:hover { border-color: var(--accent); background: #e4ddd2; }
+
+    .placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .hint {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hint svg { width: 20px; height: 20px; opacity: 0.35; }
+
+    .photo-caption {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.85rem;
+    }
+
+    .photo-slot.portrait .placeholder { aspect-ratio: 3 / 4; }
+
+    .photo-duo {
+      margin: 4rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    .photo-duo .placeholder { aspect-ratio: 3 / 4; }
+    .photo-duo label { display: block; cursor: pointer; }
+    .photo-duo input[type="file"] { display: none; }
+
+    @media (max-width: 580px) { .photo-duo { grid-template-columns: 1fr; } }
+
+    /* ─── SCROLL REVEAL ──────────────────────── */
+    .reveal { opacity: 1; transform: none; transition: opacity 0.85s ease, transform 0.85s ease; }
+    .reveal.hidden { opacity: 0; transform: translateY(22px); }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 580px) {
+      body { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <a href="carta-1-mes.html" class="back-link">← voltar para a carta dela</a>
+  <p class="hero-eyebrow">Uma resposta de amor</p>
+  <h1 class="hero-title">Uma resposta<br><em>para nós.</em></h1>
+  <p class="hero-sub">Lucas &nbsp;·&nbsp; 11/03/2026</p>
+  <div class="hero-line"></div>
+</section>
+
+<!-- LETTER -->
+<main class="letter">
+
+  <div class="divider reveal"><span>I</span></div>
+
+  <p class="reveal">Ler a tua carta foi como voltar para cada momento que vivemos nesse primeiro mês. Cada conversa, cada decisão, cada surpresa que a vida colocou no nosso caminho.</p>
+
+  <p class="reveal">E talvez o que mais me impressione em tudo isso seja justamente o quanto nada disso estava nos meus planos.</p>
+
+  <p class="reveal">Eu não estava procurando um relacionamento. Na verdade, eu tinha construído uma barreira muito clara dentro de mim. Depois de tudo que vivi, meu foco era outro. Meu objetivo era ser resiliente, manter a cabeça firme e seguir o plano que eu tinha traçado para mim e para o meu filho: reconstruir a vida e, em algum momento, sair do país para começar uma nova história lá fora.</p>
+
+  <p class="reveal"><em>Eu não me via entrando em um relacionamento. Não naquele momento.</em></p>
+
+  <div class="quote reveal">Mas então você apareceu.</div>
+
+  <!-- FOTO 1 -->
+  <div class="photo-slot reveal">
+    <label>
+      <input type="file" accept="image/*" onchange="addPhoto(this)">
+      <div class="placeholder">
+        <div class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          toque para adicionar uma foto
+        </div>
+        <img />
+      </div>
+    </label>
+    <p class="photo-caption">o começo de tudo</p>
+  </div>
+
+  <div class="divider reveal"><span>II</span></div>
+
+  <p class="reveal">E algo em mim começou a mudar de um jeito que eu não esperava.</p>
+
+  <p class="reveal">Foi nas conversas intermináveis, nas madrugadas falando sobre a vida, nos valores que se alinhavam com tanta naturalidade. Foi na tua presença, na tua forma de ser, na verdade que você trouxe para perto de mim.</p>
+
+  <p class="reveal">E, de repente, aquela barreira que eu tinha construído parecia não ser mais suficiente.</p>
+
+  <div class="quote reveal">Porque o amor que eu comecei a receber de você atravessou tudo.</div>
+
+  <p class="reveal">Quando percebi, em apenas dezessete dias, eu já estava fazendo algo que meses antes parecia impossível: te pedindo em namoro… e dizendo que te amava.</p>
+
+  <p class="reveal"><em>E não foi impulso.</em></p>
+  <p class="reveal"><strong>Foi certeza.</strong></p>
+
+  <!-- FOTOS 2 + 3 -->
+  <div class="photo-duo reveal">
+    <div>
+      <label>
+        <input type="file" accept="image/*" onchange="addPhoto(this)">
+        <div class="placeholder">
+          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
+          <img />
+        </div>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="file" accept="image/*" onchange="addPhoto(this)">
+        <div class="placeholder">
+          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
+          <img />
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="divider reveal"><span>III</span></div>
+
+  <p class="reveal">Desde então, algo ainda maior começou a acontecer dentro de mim.</p>
+
+  <p class="reveal">A ideia de mudar de cidade era improvável. Eu tinha planos de sair do país com meu filho, de seguir um caminho completamente diferente. Mas quando comecei a imaginar o futuro… você estava nele.</p>
+
+  <p class="reveal">E foi então que eu entendi que, às vezes, a vida não muda os nossos planos para nos atrapalhar.</p>
+
+  <div class="quote reveal">Ela muda para nos mostrar algo melhor.</div>
+
+  <p class="reveal">Por isso eu tomei uma decisão que talvez seja uma das mais importantes da minha vida: deixar o passado para trás, mudar de cidade, construir uma nova casa, um novo começo… e construir uma família com você.</p>
+
+  <p class="reveal">Não porque eu precise disso.</p>
+  <p class="reveal"><em>Mas porque eu quero isso.</em></p>
+
+  <!-- FOTO 4 -->
+  <div class="photo-slot portrait reveal">
+    <label>
+      <input type="file" accept="image/*" onchange="addPhoto(this)">
+      <div class="placeholder">
+        <div class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          toque para adicionar uma foto
+        </div>
+        <img />
+      </div>
+    </label>
+    <p class="photo-caption">o futuro que escolhemos</p>
+  </div>
+
+  <div class="divider reveal"><span>IV</span></div>
+
+  <p class="reveal">Porque, no meio de todo o caos, de todos os acontecimentos improváveis que já vivemos em tão pouco tempo, uma coisa sempre permaneceu clara para mim:</p>
+
+  <p class="reveal"><strong>Você.</strong></p>
+
+  <p class="reveal"><em>Sua presença. Sua parceria. Seu amor.</em></p>
+
+  <p class="reveal">E hoje eu tenho ainda mais certeza de que aquilo que começou de forma improvável se transformou em algo muito especial.</p>
+
+  <div class="quote reveal">Eu também escolho nós.</div>
+
+  <p class="reveal">Escolho todos os dias continuar construindo essa história. Escolho caminhar ao teu lado. Escolho transformar planos em realidade.</p>
+
+  <p class="reveal">E se esse primeiro mês já trouxe tanta vida para a nossa história… eu mal posso esperar para ver tudo o que ainda vamos construir juntos.</p>
+
+  <!-- FOTO 5 -->
+  <div class="photo-slot reveal">
+    <label>
+      <input type="file" accept="image/*" onchange="addPhoto(this)">
+      <div class="placeholder">
+        <div class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          toque para adicionar uma foto
+        </div>
+        <img />
+      </div>
+    </label>
+    <p class="photo-caption">nós</p>
+  </div>
+
+  <div class="closing reveal">
+    <p class="line1">Feliz nosso primeiro mês.</p>
+    <p class="line2">Eu amo você. ❤️</p>
+    <p class="meta">11/03/2026 &nbsp;·&nbsp; Lucas</p>
+    <span class="tail"></span>
+  </div>
+
+</main>
+
+<div class="footer-nav">
+  <a href="carta-1-mes.html">← voltar para a carta dela</a>
+</div>
+
+<script>
+  function addPhoto(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const ph = input.closest('label').querySelector('.placeholder');
+      const img = ph.querySelector('img');
+      const hint = ph.querySelector('.hint');
+      img.src = e.target.result;
+      img.style.display = 'block';
+      if (hint) hint.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.classList.add('hidden');
+      el.style.transitionDelay = (i % 3 * 0.08) + 's';
+      obs.observe(el);
+    });
+  }
+</script>
+</body>
+</html>
