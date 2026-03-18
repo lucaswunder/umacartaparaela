@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uma Resposta Para Nós · Lucas</title>
+  <title>Carta de 2 Meses · 11/04/2026 · Lucas</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap');
 
@@ -42,7 +42,7 @@
       justify-content: center;
       text-align: center;
       padding: 5rem 2rem 6rem;
-      background: radial-gradient(ellipse 80% 60% at 50% 40%, #ddd0c0 0%, var(--bg) 70%);
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, #d8ccbe 0%, var(--bg) 70%);
       position: relative;
     }
 
@@ -76,9 +76,9 @@
     }
 
     .hero-title {
-      font-size: clamp(2.8rem, 9vw, 6rem);
+      font-size: clamp(3.2rem, 10vw, 6.5rem);
       font-weight: 300;
-      line-height: 1.1;
+      line-height: 1.05;
       letter-spacing: -0.01em;
       color: var(--ink);
     }
@@ -196,25 +196,6 @@
       background: linear-gradient(to bottom, var(--accent), transparent);
       margin: 2.5rem auto 0;
     }
-
-    /* ─── BACK BUTTON AT BOTTOM ──────────────── */
-    .footer-nav {
-      text-align: center;
-      padding: 0 2rem 6rem;
-    }
-
-    .footer-nav a {
-      font-family: 'Jost', Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-
-    .footer-nav a:hover { color: var(--accent); }
 
     /* ─── SURPRISE SECTION ─────────────────── */
     .surprise-section {
@@ -340,15 +321,33 @@
     .photo-duo label { display: block; cursor: pointer; }
     .photo-duo input[type="file"] { display: none; }
 
-    @media (max-width: 580px) { .photo-duo { grid-template-columns: 1fr; } }
-
     /* ─── SCROLL REVEAL ──────────────────────── */
     .reveal { opacity: 1; transform: none; transition: opacity 0.85s ease, transform 0.85s ease; }
     .reveal.hidden { opacity: 0; transform: translateY(22px); }
     .reveal.show { opacity: 1; transform: none; }
 
+    /* ─── FOOTER NAV ─────────────────────────── */
+    .footer-nav {
+      text-align: center;
+      padding: 0 2rem 3rem;
+    }
+
+    .footer-nav a {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .footer-nav a:hover { color: var(--accent); }
+
     @media (max-width: 580px) {
       body { font-size: 18px; }
+      .photo-duo { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -356,10 +355,10 @@
 
 <!-- HERO -->
 <section class="hero">
-  <a href="index.html" class="back-link">← voltar para a carta dela</a>
-  <p class="hero-eyebrow">Uma resposta de amor</p>
-  <h1 class="hero-title">Uma resposta<br><em>para nós.</em></h1>
-  <p class="hero-sub">Lucas &nbsp;·&nbsp; 11/03/2026</p>
+  <a href="carta-resposta.html" class="back-link">← voltar para a resposta dele</a>
+  <p class="hero-eyebrow">Uma carta de amor</p>
+  <h1 class="hero-title">2 meses<br><em>de nós.</em></h1>
+  <p class="hero-sub">Lucas &nbsp;·&nbsp; 11 · 04 · 2026</p>
   <div class="hero-line"></div>
 </section>
 
@@ -368,17 +367,13 @@
 
   <div class="divider reveal"><span>I</span></div>
 
-  <p class="reveal">Ler a tua carta foi como voltar para cada momento que vivemos nesse primeiro mês. Cada conversa, cada decisão, cada surpresa que a vida colocou no nosso caminho.</p>
+  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
+  <p class="reveal">Dois meses. Quando digo em voz alta, parece tão pouco. Mas quando me sento aqui e olho para tudo que vivemos desde aquele primeiro dia, me dou conta de que esses dois meses valem por muito mais do que o calendário poderia medir.</p>
 
-  <p class="reveal">E talvez o que mais me impressione em tudo isso seja justamente o quanto nada disso estava nos meus planos.</p>
+  <p class="reveal">Não é o tempo que conta. É o que fazemos com ele. E nós, nesse tempo curto e ao mesmo tempo tão cheio, já construímos coisas que muita gente leva anos para alcançar.</p>
 
-  <p class="reveal">Eu não estava procurando um relacionamento. Na verdade, eu tinha construído uma barreira muito clara dentro de mim. Depois de tudo que vivi, meu foco era outro. Meu objetivo era ser resiliente, manter a cabeça firme e seguir o plano que eu tinha traçado para mim e para o meu filho: reconstruir a vida e, em algum momento, sair do país para começar uma nova história lá fora.</p>
+  <p class="reveal"><em>E ainda assim, sinto que mal começamos.</em></p>
 
-  <p class="reveal"><em>Eu não me via entrando em um relacionamento. Não naquele momento.</em></p>
-
-  <div class="quote reveal">Mas então você apareceu.</div>
-
-  <!-- FOTO 1 -->
   <div class="photo-slot reveal">
     <label>
       <input type="file" accept="image/*" onchange="addPhoto(this)">
@@ -390,25 +385,20 @@
         <img />
       </div>
     </label>
-    <p class="photo-caption">o começo de tudo</p>
+    <p class="photo-caption">dois meses de história</p>
   </div>
 
   <div class="divider reveal"><span>II</span></div>
 
-  <p class="reveal">E algo em mim começou a mudar de um jeito que eu não esperava.</p>
+  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
+  <p class="reveal">Eu costumava pensar que sabia o que queria da vida. Tinha um plano. Uma direção. E então você chegou e, de um jeito muito silencioso, foi reorganizando tudo — não derrubando o que eu havia construído, mas mostrando que havia um lugar diferente e melhor para cada coisa.</p>
 
-  <p class="reveal">Foi nas conversas intermináveis, nas madrugadas falando sobre a vida, nos valores que se alinhavam com tanta naturalidade. Foi na tua presença, na tua forma de ser, na verdade que você trouxe para perto de mim.</p>
+  <div class="quote reveal">Você não mudou minha vida. Você me mostrou que a vida que eu queria era você.</div>
 
-  <p class="reveal">E, de repente, aquela barreira que eu tinha construído parecia não ser mais suficiente.</p>
+  <p class="reveal">Cada escolha que tomei desde que nos conhecemos me trouxe mais clareza. Mais paz. Mais certeza de que estou no caminho certo.</p>
 
-  <div class="quote reveal">Porque o amor que eu comecei a receber de você atravessou tudo.</div>
+  <p class="reveal"><em>E o caminho certo sempre passa por você.</em></p>
 
-  <p class="reveal">Quando percebi, em apenas dezessete dias, eu já estava fazendo algo que meses antes parecia impossível: te pedindo em namoro… e dizendo que te amava.</p>
-
-  <p class="reveal"><em>E não foi impulso.</em></p>
-  <p class="reveal"><strong>Foi certeza.</strong></p>
-
-  <!-- FOTOS 2 + 3 -->
   <div class="photo-duo reveal">
     <div>
       <label>
@@ -432,21 +422,67 @@
 
   <div class="divider reveal"><span>III</span></div>
 
-  <p class="reveal">Desde então, algo ainda maior começou a acontecer dentro de mim.</p>
+  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
+  <p class="reveal">Nesse segundo mês, eu aprendi algo importante sobre nós: não somos perfeitos individualmente. Mas juntos, temos a capacidade de fazer o outro crescer de um jeito que sozinho eu não conseguiria.</p>
 
-  <p class="reveal">A ideia de mudar de cidade era improvável. Eu tinha planos de sair do país com meu filho, de seguir um caminho completamente diferente. Mas quando comecei a imaginar o futuro… você estava nele.</p>
+  <p class="reveal">Vi você em momentos difíceis. Vi você cansada, preocupada, carregando o peso de coisas que não dependiam só de você. E em todos esses momentos, o que ficou foi isso: <strong>eu quero estar aqui.</strong> Não porque preciso. Não por obrigação.</p>
 
-  <p class="reveal">E foi então que eu entendi que, às vezes, a vida não muda os nossos planos para nos atrapalhar.</p>
+  <div class="quote reveal">Mas porque ao seu lado é onde faz mais sentido estar.</div>
 
-  <div class="quote reveal">Ela muda para nos mostrar algo melhor.</div>
-
-  <p class="reveal">Por isso eu tomei uma decisão que talvez seja uma das mais importantes da minha vida: deixar o passado para trás, mudar de cidade, construir uma nova casa, um novo começo… e construir uma família com você.</p>
-
-  <p class="reveal">Não porque eu precise disso.</p>
-  <p class="reveal"><em>Mas porque eu quero isso.</em></p>
-
-  <!-- FOTO 4 -->
   <div class="photo-slot portrait reveal">
+    <label>
+      <input type="file" accept="image/*" onchange="addPhoto(this)">
+      <div class="placeholder">
+        <div class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          toque para adicionar uma foto
+        </div>
+        <img />
+      </div>
+    </label>
+    <p class="photo-caption">nós, no meio de tudo</p>
+  </div>
+
+  <div class="divider reveal"><span>IV</span></div>
+
+  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
+  <p class="reveal">Houve um momento — eu não sei exatamente quando — em que o futuro deixou de ser algo abstrato e distante e passou a ter um rosto. O seu.</p>
+
+  <p class="reveal">Quando penso em onde quero estar daqui a um ano, a cinco, a vinte — você está lá. Sem esforço. Sem forçar. Naturalmente, como se não coubesse outra pessoa nesse lugar.</p>
+
+  <p class="reveal"><em>Eu não tenho dúvida de que é com você que eu quero construir tudo.</em></p>
+
+  <div class="photo-duo reveal">
+    <div>
+      <label>
+        <input type="file" accept="image/*" onchange="addPhoto(this)">
+        <div class="placeholder">
+          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
+          <img />
+        </div>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="file" accept="image/*" onchange="addPhoto(this)">
+        <div class="placeholder">
+          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
+          <img />
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="divider reveal"><span>V</span></div>
+
+  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
+  <p class="reveal"><strong>Feliz dois meses.</strong> Dois meses de escolhas diárias. De manhãs e noites. De conversas que nunca acabam e silêncios que não precisam de palavras. De planos que viram realidade e de realidades que superam qualquer plano.</p>
+
+  <p class="reveal">Obrigado por ser exatamente como você é. Por não ceder quem você é para se encaixar em qualquer coisa. Por me desafiar. Por me amar do jeito que você ama — inteiro, presente, verdadeiro.</p>
+
+  <p class="reveal">Eu tenho algo a mais para te dizer. Algo que não cabe nessa carta, que precisa de um momento só seu.</p>
+
+  <div class="photo-slot reveal">
     <label>
       <input type="file" accept="image/*" onchange="addPhoto(this)">
       <div class="placeholder">
@@ -460,58 +496,27 @@
     <p class="photo-caption">o futuro que escolhemos</p>
   </div>
 
-  <div class="divider reveal"><span>IV</span></div>
-
-  <p class="reveal">Porque, no meio de todo o caos, de todos os acontecimentos improváveis que já vivemos em tão pouco tempo, uma coisa sempre permaneceu clara para mim:</p>
-
-  <p class="reveal"><strong>Você.</strong></p>
-
-  <p class="reveal"><em>Sua presença. Sua parceria. Seu amor.</em></p>
-
-  <p class="reveal">E hoje eu tenho ainda mais certeza de que aquilo que começou de forma improvável se transformou em algo muito especial.</p>
-
-  <div class="quote reveal">Eu também escolho nós.</div>
-
-  <p class="reveal">Escolho todos os dias continuar construindo essa história. Escolho caminhar ao teu lado. Escolho transformar planos em realidade.</p>
-
-  <p class="reveal">E se esse primeiro mês já trouxe tanta vida para a nossa história… eu mal posso esperar para ver tudo o que ainda vamos construir juntos.</p>
-
-  <!-- FOTO 5 -->
-  <div class="photo-slot reveal">
-    <label>
-      <input type="file" accept="image/*" onchange="addPhoto(this)">
-      <div class="placeholder">
-        <div class="hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
-          toque para adicionar uma foto
-        </div>
-        <img />
-      </div>
-    </label>
-    <p class="photo-caption">nós</p>
+  <div class="closing reveal">
+    <p class="line1">Feliz dois meses, amor.</p>
+    <p class="line2">Eu amo você.</p>
+    <p class="meta">11/04/2026 &nbsp;·&nbsp; Lucas</p>
+    <span class="tail"></span>
   </div>
 
-  <div class="closing reveal">
-    <p class="line1">Feliz nosso primeiro mês.</p>
-    <p class="line2">Eu amo você. ❤️</p>
-    <p class="meta">11/03/2026 &nbsp;·&nbsp; Lucas</p>
-    <span class="tail"></span>
+  <!-- SURPRESA -->
+  <div class="surprise-section reveal">
+    <p class="surprise-hint">tem algo especial esperando por você</p>
+    <a href="carta-pedido.html" class="surprise-btn">
+      <span class="heart">💍</span>
+      abrir a surpresa
+      <span class="heart">💍</span>
+    </a>
   </div>
 
 </main>
 
-<!-- SURPRESA -->
-<div class="surprise-section reveal">
-  <p class="surprise-hint">a história continua</p>
-  <a href="carta-2-meses.html" class="surprise-btn">
-    <span class="heart">🖤</span>
-    dois meses de nós
-    <span class="heart">🖤</span>
-  </a>
-</div>
-
 <div class="footer-nav">
-  <a href="index.html">← voltar para a carta dela</a>
+  <a href="carta-resposta.html">← voltar para a resposta dele</a>
 </div>
 
 <script>
