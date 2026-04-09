@@ -29,11 +29,9 @@
       overflow-x: hidden;
     }
 
-    /* ─── ENTRY ANIMATION ──────────────────── */
     body { animation: pageFade 1.2s ease forwards; }
     @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
 
-    /* ─── HERO ─────────────────────────────── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -102,7 +100,6 @@
       margin: 3.5rem auto 0;
     }
 
-    /* ─── LETTER ────────────────────────────── */
     .letter {
       max-width: 660px;
       margin: 0 auto;
@@ -132,11 +129,7 @@
       color: var(--accent);
     }
 
-    .letter p {
-      margin-bottom: 1.7rem;
-      color: var(--ink);
-    }
-
+    .letter p { margin-bottom: 1.7rem; color: var(--ink); }
     .letter p em { font-style: italic; }
     .letter p strong { font-weight: 500; color: var(--accent); }
 
@@ -150,152 +143,24 @@
       line-height: 1.7;
     }
 
-    /* ─── CLOSING ─────────────────────────────── */
-    .closing {
-      text-align: center;
-      padding: 5rem 0 3rem;
-    }
+    .closing { text-align: center; padding: 5rem 0 3rem; }
+    .closing .line1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 300; color: var(--ink); line-height: 1.3; margin-bottom: 0.4rem; }
+    .closing .line2 { font-size: clamp(2.2rem, 6vw, 3.8rem); font-style: italic; font-weight: 300; color: var(--accent); }
+    .closing .meta { font-family: 'Jost', Helvetica, Arial, sans-serif; font-weight: 200; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); margin-top: 3rem; }
+    .closing .love { font-style: italic; font-size: 1.1rem; letter-spacing: 0.08em; color: var(--ink); margin-top: 0.6rem; }
+    .closing .tail { display: block; width: 1px; height: 55px; background: linear-gradient(to bottom, var(--accent), transparent); margin: 2.5rem auto 0; }
 
-    .closing .line1 {
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.3;
-      margin-bottom: 0.4rem;
-    }
-
-    .closing .line2 {
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent);
-    }
-
-    .closing .meta {
-      font-family: 'Jost', Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 0.68rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 3rem;
-    }
-
-    .closing .love {
-      font-style: italic;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      color: var(--ink);
-      margin-top: 0.6rem;
-    }
-
-    .closing .tail {
-      display: block;
-      width: 1px;
-      height: 55px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      margin: 2.5rem auto 0;
-    }
-
-    /* ─── SURPRISE SECTION ─────────────────── */
-    .surprise-section {
-      text-align: center;
-      padding: 3rem 2rem 8rem;
-      max-width: 660px;
-      margin: 0 auto;
-    }
-
-    .surprise-hint {
-      font-family: 'Jost', Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 0.62rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2rem;
-      opacity: 0.6;
-    }
-
-    .surprise-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: none;
-      border: 1.5px solid var(--soft);
-      color: var(--ink);
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      font-weight: 300;
-      letter-spacing: 0.05em;
-      padding: 1rem 2.2rem;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all 0.35s ease;
-      text-decoration: none;
-    }
-
-    .surprise-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(107,79,53,0.12);
-    }
-
-    .surprise-btn .heart {
-      font-size: 0.9rem;
-      transition: transform 0.35s ease;
-      display: inline-block;
-    }
-
-    .surprise-btn:hover .heart { transform: scale(1.3); }
-
-    /* ─── PHOTO SLOTS ────────────────────────── */
     .photo-slot { margin: 4rem 0; }
-    .photo-slot label { display: block; cursor: pointer; }
-    .photo-slot input[type="file"] { display: none; }
 
-    .placeholder {
-      background: var(--cream);
-      border: 1.5px dashed var(--soft);
-      border-radius: 3px;
-      aspect-ratio: 4 / 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.25s, background 0.25s;
-    }
-
-    .placeholder:hover { border-color: var(--accent); background: #e4ddd2; }
-
-    .placeholder img {
-      position: absolute;
-      inset: 0;
+    .photo-real {
       width: 100%;
-      height: 100%;
+      border-radius: 3px;
+      display: block;
       object-fit: cover;
-      display: none;
     }
 
-    .hint {
-      font-family: 'Jost', Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 0.62rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .hint svg { width: 20px; height: 20px; opacity: 0.35; }
+    .photo-slot:not(.portrait) .photo-real { aspect-ratio: 4 / 3; }
+    .photo-slot.portrait .photo-real { aspect-ratio: 3 / 4; }
 
     .photo-caption {
       font-family: 'Jost', Helvetica, Arial, sans-serif;
@@ -308,8 +173,6 @@
       margin-top: 0.85rem;
     }
 
-    .photo-slot.portrait .placeholder { aspect-ratio: 3 / 4; }
-
     .photo-duo {
       margin: 4rem 0;
       display: grid;
@@ -317,21 +180,13 @@
       gap: 0.7rem;
     }
 
-    .photo-duo .placeholder { aspect-ratio: 3 / 4; }
-    .photo-duo label { display: block; cursor: pointer; }
-    .photo-duo input[type="file"] { display: none; }
+    .photo-duo .photo-real { aspect-ratio: 3 / 4; width: 100%; }
 
-    /* ─── SCROLL REVEAL ──────────────────────── */
     .reveal { opacity: 1; transform: none; transition: opacity 0.85s ease, transform 0.85s ease; }
     .reveal.hidden { opacity: 0; transform: translateY(22px); }
     .reveal.show { opacity: 1; transform: none; }
 
-    /* ─── FOOTER NAV ─────────────────────────── */
-    .footer-nav {
-      text-align: center;
-      padding: 0 2rem 3rem;
-    }
-
+    .footer-nav { text-align: center; padding: 0 2rem 6rem; }
     .footer-nav a {
       font-family: 'Jost', Helvetica, Arial, sans-serif;
       font-weight: 200;
@@ -342,7 +197,6 @@
       text-decoration: none;
       transition: color 0.25s;
     }
-
     .footer-nav a:hover { color: var(--accent); }
 
     @media (max-width: 580px) {
@@ -353,7 +207,6 @@
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <a href="carta-resposta.html" class="back-link">← voltar para a resposta dele</a>
   <p class="hero-eyebrow">Uma carta de amor</p>
@@ -362,155 +215,85 @@
   <div class="hero-line"></div>
 </section>
 
-<!-- LETTER -->
 <main class="letter">
 
   <div class="divider reveal"><span>I</span></div>
 
-  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
-  <p class="reveal">Dois meses. Quando digo em voz alta, parece tão pouco. Mas quando me sento aqui e olho para tudo que vivemos desde aquele primeiro dia, me dou conta de que esses dois meses valem por muito mais do que o calendário poderia medir.</p>
+  <p class="reveal">Dois meses. Sessenta dias. E agora a mesma casa, as mesmas chaves, a mesma geladeira, o mesmo teto. O que começou com uma conversa num aplicativo acabou com a gente morando junto num ritmo que a maioria das pessoas leva anos para chegar.</p>
 
-  <p class="reveal">Não é o tempo que conta. É o que fazemos com ele. E nós, nesse tempo curto e ao mesmo tempo tão cheio, já construímos coisas que muita gente leva anos para alcançar.</p>
+  <p class="reveal">Mas é assim com a gente: as coisas acontecem no tempo que precisam acontecer. Não tem como frear quando é certo. E desde o primeiro dia, nunca precisei me convencer de nada. Era só… claro.</p>
 
-  <p class="reveal"><em>E ainda assim, sinto que mal começamos.</em></p>
+  <p class="reveal"><em>Você chegou, e com você veio a sensação de que tudo aquilo que estava no lugar errado finalmente encontrou onde encaixar.</em></p>
 
   <div class="photo-slot reveal">
-    <label>
-      <input type="file" accept="image/*" onchange="addPhoto(this)">
-      <div class="placeholder">
-        <div class="hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
-          toque para adicionar uma foto
-        </div>
-        <img />
-      </div>
-    </label>
+    <img src="foto-1.jpg" alt="dois meses de história" class="photo-real">
     <p class="photo-caption">dois meses de história</p>
   </div>
 
   <div class="divider reveal"><span>II</span></div>
 
-  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
-  <p class="reveal">Eu costumava pensar que sabia o que queria da vida. Tinha um plano. Uma direção. E então você chegou e, de um jeito muito silencioso, foi reorganizando tudo — não derrubando o que eu havia construído, mas mostrando que havia um lugar diferente e melhor para cada coisa.</p>
+  <p class="reveal">Mudar não é fácil. Eu sei disso melhor do que qualquer um. Mudar de cidade, de rotina, de vida — é pesado de um jeito que as pessoas que nunca fizeram não conseguem entender direito. Você larga um endereço, mas o que vai junto é muito mais do que um CEP.</p>
 
-  <div class="quote reveal">Você não mudou minha vida. Você me mostrou que a vida que eu queria era você.</div>
+  <p class="reveal">Vai a familiaridade das ruas. A padaria da esquina. O jeito que a luz do sol bate no seu quarto de manhã. Vão as referências, os atalhos, os lugares que te conhecem pelo nome.</p>
 
-  <p class="reveal">Cada escolha que tomei desde que nos conhecemos me trouxe mais clareza. Mais paz. Mais certeza de que estou no caminho certo.</p>
+  <div class="quote reveal">Mas aí você olha pro lado e percebe que trouxe junto o que de fato importa.</div>
 
-  <p class="reveal"><em>E o caminho certo sempre passa por você.</em></p>
+  <p class="reveal">Você não me pediu para mudar. Nunca seria capaz de pedir isso. Mas quando eu pensei no futuro — e você estava nele com uma naturalidade assustadora — a decisão já estava tomada antes mesmo de eu perceber que estava decidindo.</p>
+
+  <p class="reveal"><em>Mudar foi pesado. Mas foi a coisa mais certa que eu já fiz.</em></p>
 
   <div class="photo-duo reveal">
-    <div>
-      <label>
-        <input type="file" accept="image/*" onchange="addPhoto(this)">
-        <div class="placeholder">
-          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
-          <img />
-        </div>
-      </label>
-    </div>
-    <div>
-      <label>
-        <input type="file" accept="image/*" onchange="addPhoto(this)">
-        <div class="placeholder">
-          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
-          <img />
-        </div>
-      </label>
-    </div>
+    <img src="foto-2.jpg" alt="nós" class="photo-real">
+    <img src="foto-3.jpg" alt="nós" class="photo-real">
   </div>
 
   <div class="divider reveal"><span>III</span></div>
 
-  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
-  <p class="reveal">Nesse segundo mês, eu aprendi algo importante sobre nós: não somos perfeitos individualmente. Mas juntos, temos a capacidade de fazer o outro crescer de um jeito que sozinho eu não conseguiria.</p>
+  <p class="reveal">O que mais eu gosto de nós são os rolez. Não os planejados, não os com reserva e itinerário e roupa combinada. São os aleatórios, os que começam com um "e aí, vamos sair?" e terminam em algum lugar que a gente nem sabia que existia.</p>
 
-  <p class="reveal">Vi você em momentos difíceis. Vi você cansada, preocupada, carregando o peso de coisas que não dependiam só de você. E em todos esses momentos, o que ficou foi isso: <strong>eu quero estar aqui.</strong> Não porque preciso. Não por obrigação.</p>
+  <p class="reveal">Uma barraquinha de comida na beira da praia. Uma praça às dez da noite. Uma rua nova só pra ver onde vai dar. Bar de esquina. Caminhada sem destino. Parada pra assistir o pôr do sol no carro, no meio do nada, como se o tempo fosse infinito.</p>
 
-  <div class="quote reveal">Mas porque ao seu lado é onde faz mais sentido estar.</div>
+  <div class="quote reveal">Com você, até o sem plano tem gosto de programa favorito.</div>
+
+  <p class="reveal">Esses momentos são o que me lembra que a vida não tá nos grandes eventos. Tá no miúdo. No corriqueiro. Naquele beijo aleatório no rosto enquanto a gente espera o pedido chegar.</p>
 
   <div class="photo-slot portrait reveal">
-    <label>
-      <input type="file" accept="image/*" onchange="addPhoto(this)">
-      <div class="placeholder">
-        <div class="hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
-          toque para adicionar uma foto
-        </div>
-        <img />
-      </div>
-    </label>
+    <img src="foto-4.jpg" alt="nós, no meio de tudo" class="photo-real">
     <p class="photo-caption">nós, no meio de tudo</p>
   </div>
 
   <div class="divider reveal"><span>IV</span></div>
 
-  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
-  <p class="reveal">Houve um momento — eu não sei exatamente quando — em que o futuro deixou de ser algo abstrato e distante e passou a ter um rosto. O seu.</p>
+  <p class="reveal">Morar junto revelou coisas que o namoro à distância não consegue revelar. Pequenas coisas. O jeito que você ocupa um espaço. O som dos seus passos. A rotina que foi se formando naturalmente, sem que a gente tivesse combinado nada.</p>
 
-  <p class="reveal">Quando penso em onde quero estar daqui a um ano, a cinco, a vinte — você está lá. Sem esforço. Sem forçar. Naturalmente, como se não coubesse outra pessoa nesse lugar.</p>
+  <p class="reveal">E é bonito demais ver como duas pessoas com histórias tão diferentes conseguem criar uma rotina que parece que sempre existiu. Café da manhã, hora de dormir, as preferências que foram cedendo espaço, as novas preferências que foram surgindo.</p>
 
-  <p class="reveal"><em>Eu não tenho dúvida de que é com você que eu quero construir tudo.</em></p>
+  <p class="reveal"><strong>Uma vida comum.</strong> <em>E ao mesmo tempo, a mais extraordinária que já tive.</em></p>
 
   <div class="photo-duo reveal">
-    <div>
-      <label>
-        <input type="file" accept="image/*" onchange="addPhoto(this)">
-        <div class="placeholder">
-          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
-          <img />
-        </div>
-      </label>
-    </div>
-    <div>
-      <label>
-        <input type="file" accept="image/*" onchange="addPhoto(this)">
-        <div class="placeholder">
-          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>foto</div>
-          <img />
-        </div>
-      </label>
-    </div>
+    <img src="foto-5.jpg" alt="nós" class="photo-real">
+    <img src="foto-6.jpg" alt="nós" class="photo-real">
   </div>
 
   <div class="divider reveal"><span>V</span></div>
 
-  <!-- TODO: Substitua este texto pelo conteúdo real da carta -->
-  <p class="reveal"><strong>Feliz dois meses.</strong> Dois meses de escolhas diárias. De manhãs e noites. De conversas que nunca acabam e silêncios que não precisam de palavras. De planos que viram realidade e de realidades que superam qualquer plano.</p>
+  <p class="reveal"><strong>Dois meses.</strong> E já parece que estamos construindo algo que vai durar. Não porque a vida ficou mais fácil — a vida nunca fica. Mas porque ficou mais leve. Mais inteira. Com mais graça.</p>
 
-  <p class="reveal">Obrigado por ser exatamente como você é. Por não ceder quem você é para se encaixar em qualquer coisa. Por me desafiar. Por me amar do jeito que você ama — inteiro, presente, verdadeiro.</p>
+  <p class="reveal">Você me faz querer ser uma versão melhor de mim. Não por pressão, não por cobrança — mas porque quando alguém te olha do jeito que você me olha, você naturalmente quer estar à altura desse olhar.</p>
 
-  <p class="reveal">Eu tenho algo a mais para te dizer. Algo que não cabe nessa carta, que precisa de um momento só seu.</p>
+  <p class="reveal">Obrigado por ter topado essa vida junto. Por ter deixado eu fazer parte da sua. Por cada rolê sem destino, por cada noite que valeu mais do que qualquer plano poderia prometer.</p>
 
   <div class="photo-slot reveal">
-    <label>
-      <input type="file" accept="image/*" onchange="addPhoto(this)">
-      <div class="placeholder">
-        <div class="hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
-          toque para adicionar uma foto
-        </div>
-        <img />
-      </div>
-    </label>
+    <img src="foto-7.jpg" alt="o futuro que escolhemos" class="photo-real">
     <p class="photo-caption">o futuro que escolhemos</p>
   </div>
 
   <div class="closing reveal">
     <p class="line1">Feliz dois meses, amor.</p>
     <p class="line2">Eu amo você.</p>
-    <p class="meta">11/04/2026 &nbsp;·&nbsp; Lucas</p>
+    <p class="meta">11/04/2026 &nbsp;·&nbsp; Lucas 🖤</p>
+    <p class="love">AMO VOCÊ</p>
     <span class="tail"></span>
-  </div>
-
-  <!-- SURPRESA -->
-  <div class="surprise-section reveal">
-    <p class="surprise-hint">tem algo especial esperando por você</p>
-    <a href="carta-pedido.html" class="surprise-btn">
-      <span class="heart">💍</span>
-      abrir a surpresa
-      <span class="heart">💍</span>
-    </a>
   </div>
 
 </main>
@@ -520,21 +303,6 @@
 </div>
 
 <script>
-  function addPhoto(input) {
-    const file = input.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = e => {
-      const ph = input.closest('label').querySelector('.placeholder');
-      const img = ph.querySelector('img');
-      const hint = ph.querySelector('.hint');
-      img.src = e.target.result;
-      img.style.display = 'block';
-      if (hint) hint.style.display = 'none';
-    };
-    reader.readAsDataURL(file);
-  }
-
   if ('IntersectionObserver' in window) {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
