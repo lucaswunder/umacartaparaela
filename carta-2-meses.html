@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta de 2 Meses · 11/04/2026 · Lucas</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1c1b18;
+      --muted: #7a7468;
+      --soft: #ccc4b4;
+      --bg: #faf9f6;
+      --cream: #f0ebe1;
+      --accent: #6b4f35;
+      --accent2: #8c6f4a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      line-height: 1.9;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    body { animation: pageFade 1.2s ease forwards; }
+    @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 6rem;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, #d8ccbe 0%, var(--bg) 70%);
+      position: relative;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.25s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .hero-eyebrow {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3.2rem, 10vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .hero-title em { font-style: italic; color: var(--accent); }
+
+    .hero-sub {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2.5rem;
+    }
+
+    .hero-line {
+      width: 1px;
+      height: 70px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      margin: 3.5rem auto 0;
+    }
+
+    .letter {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 2rem 2rem 8rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 5rem 0 4rem;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--soft);
+    }
+
+    .divider span {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .letter p { margin-bottom: 1.7rem; color: var(--ink); }
+    .letter p em { font-style: italic; }
+    .letter p strong { font-weight: 500; color: var(--accent); }
+
+    .quote {
+      border-left: 2px solid var(--accent);
+      padding: 0.4rem 0 0.4rem 2rem;
+      margin: 3rem 0;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .closing { text-align: center; padding: 5rem 0 3rem; }
+    .closing .line1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 300; color: var(--ink); line-height: 1.3; margin-bottom: 0.4rem; }
+    .closing .line2 { font-size: clamp(2.2rem, 6vw, 3.8rem); font-style: italic; font-weight: 300; color: var(--accent); }
+    .closing .meta { font-family: 'Jost', Helvetica, Arial, sans-serif; font-weight: 200; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); margin-top: 3rem; }
+    .closing .love { font-style: italic; font-size: 1.1rem; letter-spacing: 0.08em; color: var(--ink); margin-top: 0.6rem; }
+    .closing .tail { display: block; width: 1px; height: 55px; background: linear-gradient(to bottom, var(--accent), transparent); margin: 2.5rem auto 0; }
+
+    .photo-slot { margin: 4rem 0; }
+
+    .photo-real {
+      width: 100%;
+      border-radius: 3px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .photo-slot:not(.portrait) .photo-real { aspect-ratio: 4 / 3; }
+    .photo-slot.portrait .photo-real { aspect-ratio: 3 / 4; }
+
+    .photo-caption {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.85rem;
+    }
+
+    .photo-duo {
+      margin: 4rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    .photo-duo .photo-real { aspect-ratio: 3 / 4; width: 100%; }
+
+    .reveal { opacity: 1; transform: none; transition: opacity 0.85s ease, transform 0.85s ease; }
+    .reveal.hidden { opacity: 0; transform: translateY(22px); }
+    .reveal.show { opacity: 1; transform: none; }
+
+    .footer-nav { text-align: center; padding: 0 2rem 6rem; }
+    .footer-nav a {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .footer-nav a:hover { color: var(--accent); }
+
+    @media (max-width: 580px) {
+      body { font-size: 18px; }
+      .photo-duo { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <a href="carta-resposta.html" class="back-link">← voltar para a resposta dele</a>
+  <p class="hero-eyebrow">Uma carta de amor</p>
+  <h1 class="hero-title">2 meses<br><em>de nós.</em></h1>
+  <p class="hero-sub">Lucas &nbsp;·&nbsp; 11 · 04 · 2026</p>
+  <div class="hero-line"></div>
+</section>
+
+<main class="letter">
+
+  <div class="divider reveal"><span>I</span></div>
+
+  <p class="reveal">Dois meses. Sessenta dias. E agora a mesma casa, as mesmas chaves, a mesma geladeira, o mesmo teto. O que começou com uma conversa num aplicativo acabou com a gente morando junto num ritmo que a maioria das pessoas leva anos para chegar.</p>
+
+  <p class="reveal">Mas é assim com a gente: as coisas acontecem no tempo que precisam acontecer. Não tem como frear quando é certo. E desde o primeiro dia, nunca precisei me convencer de nada. Era só… claro.</p>
+
+  <p class="reveal"><em>Você chegou, e com você veio a sensação de que tudo aquilo que estava no lugar errado finalmente encontrou onde encaixar.</em></p>
+
+  <div class="photo-slot reveal">
+    <img src="foto-1.jpg" alt="dois meses de história" class="photo-real">
+    <p class="photo-caption">dois meses de história</p>
+  </div>
+
+  <div class="divider reveal"><span>II</span></div>
+
+  <p class="reveal">Mudar não é fácil. Eu sei disso melhor do que qualquer um. Mudar de cidade, de rotina, de vida — é pesado de um jeito que as pessoas que nunca fizeram não conseguem entender direito. Você larga um endereço, mas o que vai junto é muito mais do que um CEP.</p>
+
+  <p class="reveal">Vai a familiaridade das ruas. A padaria da esquina. O jeito que a luz do sol bate no seu quarto de manhã. Vão as referências, os atalhos, os lugares que te conhecem pelo nome.</p>
+
+  <div class="quote reveal">Mas aí você olha pro lado e percebe que trouxe junto o que de fato importa.</div>
+
+  <p class="reveal">Você não me pediu para mudar. Nunca seria capaz de pedir isso. Mas quando eu pensei no futuro — e você estava nele com uma naturalidade assustadora — a decisão já estava tomada antes mesmo de eu perceber que estava decidindo.</p>
+
+  <p class="reveal"><em>Mudar foi pesado. Mas foi a coisa mais certa que eu já fiz.</em></p>
+
+  <div class="photo-duo reveal">
+    <img src="foto-2.jpg" alt="nós" class="photo-real">
+    <img src="foto-3.jpg" alt="nós" class="photo-real">
+  </div>
+
+  <div class="divider reveal"><span>III</span></div>
+
+  <p class="reveal">O que mais eu gosto de nós são os rolez. Não os planejados, não os com reserva e itinerário e roupa combinada. São os aleatórios, os que começam com um "e aí, vamos sair?" e terminam em algum lugar que a gente nem sabia que existia.</p>
+
+  <p class="reveal">Uma barraquinha de comida na beira da praia. Uma praça às dez da noite. Uma rua nova só pra ver onde vai dar. Bar de esquina. Caminhada sem destino. Parada pra assistir o pôr do sol no carro, no meio do nada, como se o tempo fosse infinito.</p>
+
+  <div class="quote reveal">Com você, até o sem plano tem gosto de programa favorito.</div>
+
+  <p class="reveal">Esses momentos são o que me lembra que a vida não tá nos grandes eventos. Tá no miúdo. No corriqueiro. Naquele beijo aleatório no rosto enquanto a gente espera o pedido chegar.</p>
+
+  <div class="photo-slot portrait reveal">
+    <img src="foto-4.jpg" alt="nós, no meio de tudo" class="photo-real">
+    <p class="photo-caption">nós, no meio de tudo</p>
+  </div>
+
+  <div class="divider reveal"><span>IV</span></div>
+
+  <p class="reveal">Morar junto revelou coisas que o namoro à distância não consegue revelar. Pequenas coisas. O jeito que você ocupa um espaço. O som dos seus passos. A rotina que foi se formando naturalmente, sem que a gente tivesse combinado nada.</p>
+
+  <p class="reveal">E é bonito demais ver como duas pessoas com histórias tão diferentes conseguem criar uma rotina que parece que sempre existiu. Café da manhã, hora de dormir, as preferências que foram cedendo espaço, as novas preferências que foram surgindo.</p>
+
+  <p class="reveal"><strong>Uma vida comum.</strong> <em>E ao mesmo tempo, a mais extraordinária que já tive.</em></p>
+
+  <div class="photo-duo reveal">
+    <img src="foto-5.jpg" alt="nós" class="photo-real">
+    <img src="foto-6.jpg" alt="nós" class="photo-real">
+  </div>
+
+  <div class="divider reveal"><span>V</span></div>
+
+  <p class="reveal"><strong>Dois meses.</strong> E já parece que estamos construindo algo que vai durar. Não porque a vida ficou mais fácil — a vida nunca fica. Mas porque ficou mais leve. Mais inteira. Com mais graça.</p>
+
+  <p class="reveal">Você me faz querer ser uma versão melhor de mim. Não por pressão, não por cobrança — mas porque quando alguém te olha do jeito que você me olha, você naturalmente quer estar à altura desse olhar.</p>
+
+  <p class="reveal">Obrigado por ter topado essa vida junto. Por ter deixado eu fazer parte da sua. Por cada rolê sem destino, por cada noite que valeu mais do que qualquer plano poderia prometer.</p>
+
+  <div class="photo-slot reveal">
+    <img src="foto-7.jpg" alt="o futuro que escolhemos" class="photo-real">
+    <p class="photo-caption">o futuro que escolhemos</p>
+  </div>
+
+  <div class="closing reveal">
+    <p class="line1">Feliz dois meses, amor.</p>
+    <p class="line2">Eu amo você.</p>
+    <p class="meta">11/04/2026 &nbsp;·&nbsp; Lucas 🖤</p>
+    <p class="love">AMO VOCÊ</p>
+    <span class="tail"></span>
+  </div>
+
+</main>
+
+<div class="footer-nav">
+  <a href="carta-resposta.html">← voltar para a resposta dele</a>
+</div>
+
+<script>
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.classList.add('hidden');
+      el.style.transitionDelay = (i % 3 * 0.08) + 's';
+      obs.observe(el);
+    });
+  }
+</script>
+</body>
+</html>
