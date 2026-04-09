@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algo Especial · Para Você</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1c1b18;
+      --muted: #7a7468;
+      --soft: #ccc4b4;
+      --bg: #faf9f6;
+      --cream: #f0ebe1;
+      --accent: #6b4f35;
+      --gold: #c9a055;
+      --gold-light: #e8c97a;
+      --rose: #c4857a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      line-height: 1.9;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── ENTRY OVERLAY ────────────────────── */
+    #entry-overlay {
+      position: fixed;
+      inset: 0;
+      background: #0d0b08;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      transition: opacity 1.2s ease;
+    }
+
+    #entry-overlay.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .overlay-ring {
+      font-size: 3.5rem;
+      animation: overlayRingPulse 1.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 18px rgba(201, 160, 85, 0.7));
+    }
+
+    @keyframes overlayRingPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    .overlay-text {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      animation: blink 1.8s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 0.9; }
+    }
+
+    /* ─── PETALS ───────────────────────────── */
+    .petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      animation: petalFall linear forwards;
+      user-select: none;
+    }
+
+    @keyframes petalFall {
+      0%   { transform: translateY(-20px) rotate(0deg) scale(1); opacity: 0.9; }
+      20%  { opacity: 1; }
+      80%  { opacity: 0.7; }
+      100% { transform: translateY(110vh) rotate(540deg) scale(0.6); opacity: 0; }
+    }
+
+    /* ─── HERO ─────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 6rem;
+      background: radial-gradient(ellipse 90% 70% at 50% 40%, #e8d8c0 0%, var(--bg) 65%);
+      position: relative;
+      z-index: 2;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.25s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .hero-eyebrow {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+
+    .ring-display {
+      font-size: clamp(4rem, 12vw, 7rem);
+      display: block;
+      margin-bottom: 2rem;
+      animation: ringFloat 3s ease-in-out infinite;
+      filter: drop-shadow(0 4px 20px rgba(201,160,85,0.35));
+      cursor: default;
+    }
+
+    @keyframes ringFloat {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title em { font-style: italic; color: var(--accent); }
+
+    .hero-sub {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2rem;
+    }
+
+    .hero-line {
+      width: 1px;
+      height: 70px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin: 3.5rem auto 0;
+    }
+
+    /* ─── LETTER ────────────────────────────── */
+    .letter {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 5rem 0 4rem;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--soft);
+    }
+
+    .divider span {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .letter p {
+      margin-bottom: 1.7rem;
+      color: var(--ink);
+    }
+
+    .letter p em { font-style: italic; }
+    .letter p strong { font-weight: 500; color: var(--accent); }
+
+    .quote {
+      border-left: 2px solid var(--gold);
+      padding: 0.4rem 0 0.4rem 2rem;
+      margin: 3rem 0;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── THE BIG QUESTION ─────────────────── */
+    .proposal-section {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      max-width: 660px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .proposal-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto 4rem;
+    }
+
+    .proposal-ring {
+      font-size: clamp(5rem, 15vw, 9rem);
+      display: block;
+      margin: 0 auto 3rem;
+      animation: proposalRing 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 6px 24px rgba(201,160,85,0.5));
+      cursor: default;
+    }
+
+    @keyframes proposalRing {
+      0%, 100% { transform: scale(1) rotate(-4deg); filter: drop-shadow(0 6px 24px rgba(201,160,85,0.4)); }
+      50% { transform: scale(1.08) rotate(4deg); filter: drop-shadow(0 10px 32px rgba(201,160,85,0.7)); }
+    }
+
+    .proposal-question {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .proposal-question em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .proposal-sub {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4rem;
+      opacity: 0.7;
+    }
+
+    /* ─── YES BUTTON ───────────────────────── */
+    .yes-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: none;
+      border: 1.5px solid var(--gold);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      padding: 1.2rem 3rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .yes-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,160,85,0.08), rgba(201,160,85,0.15));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .yes-btn:hover::before { opacity: 1; }
+
+    .yes-btn:hover {
+      border-color: var(--gold);
+      color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(201,160,85,0.2);
+    }
+
+    .yes-btn .ring-icon {
+      font-size: 1.2rem;
+      transition: transform 0.4s ease;
+      display: inline-block;
+    }
+
+    .yes-btn:hover .ring-icon { transform: scale(1.2) rotate(15deg); }
+
+    .yes-btn.clicked {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+
+    /* ─── YES MESSAGE ──────────────────────── */
+    #yes-message {
+      margin-top: 4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+      pointer-events: none;
+    }
+
+    #yes-message.visible {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .yes-message-ring {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 1.5rem;
+      animation: yesRingCelebrate 1s ease-in-out infinite;
+    }
+
+    @keyframes yesRingCelebrate {
+      0%, 100% { transform: rotate(-10deg) scale(1); }
+      25% { transform: rotate(10deg) scale(1.1); }
+      50% { transform: rotate(-5deg) scale(1.15); }
+      75% { transform: rotate(8deg) scale(1.1); }
+    }
+
+    .yes-message-text {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .yes-message-text em { font-style: italic; color: var(--accent); }
+
+    .yes-message-sub {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── CELEBRATION PARTICLES ────────────── */
+    .celebrate-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      font-size: 1.5rem;
+      animation: particleBurst linear forwards;
+      user-select: none;
+    }
+
+    @keyframes particleBurst {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.3); opacity: 0; }
+    }
+
+    /* ─── FOOTER NAV ─────────────────────────── */
+    .footer-nav {
+      text-align: center;
+      padding: 2rem 2rem 6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-nav a {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .footer-nav a:hover { color: var(--accent); }
+
+    /* ─── PHOTO SLOTS ────────────────────────── */
+    .photo-slot { margin: 4rem 0; position: relative; z-index: 2; }
+    .photo-slot label { display: block; cursor: pointer; }
+    .photo-slot input[type="file"] { display: none; }
+
+    .placeholder {
+      background: var(--cream);
+      border: 1.5px dashed var(--soft);
+      border-radius: 3px;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, background 0.25s;
+    }
+
+    .placeholder:hover { border-color: var(--gold); background: #e4ddd2; }
+
+    .placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .hint {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hint svg { width: 20px; height: 20px; opacity: 0.35; }
+
+    .photo-caption {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.85rem;
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────── */
+    .reveal { opacity: 1; transform: none; transition: opacity 0.85s ease, transform 0.85s ease; }
+    .reveal.hidden { opacity: 0; transform: translateY(22px); }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 580px) {
+      body { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── ENTRY OVERLAY ─────────────────────────── -->
+<div id="entry-overlay">
+  <span class="overlay-ring">💍</span>
+  <p class="overlay-text">algo especial para você</p>
+</div>
+
+<!-- ─── FALLING PETALS (geradas via JS) ──────────── -->
+
+<!-- ─── HERO ──────────────────────────────────────── -->
+<section class="hero">
+  <a href="carta-2-meses.html" class="back-link">← voltar para a carta</a>
+  <p class="hero-eyebrow">Uma pergunta especial</p>
+  <span class="ring-display" aria-hidden="true">💍</span>
+  <h1 class="hero-title">Algo que<br><em>preciso te dizer.</em></h1>
+  <p class="hero-sub">Lucas &nbsp;·&nbsp; 11 · 04 · 2026</p>
+  <div class="hero-line"></div>
+</section>
+
+<!-- ─── LETTER ─────────────────────────────────────── -->
+<main class="letter">
+
+  <div class="divider reveal"><span>I</span></div>
+
+  <!-- TODO: Substitua este texto pelo conteúdo real do pedido -->
+  <p class="reveal">Desde o primeiro dia, soube que havia algo diferente em você. Não era só a beleza, não era só a inteligência ou o jeito que você olha para o mundo. Era a soma de tudo isso, mais algo que eu não consigo nomear com precisão — uma presença que faz o ar ficar mais leve.</p>
+
+  <p class="reveal">Em dois meses, vi coisas que muitos casais levam anos para descobrir. Vi parceria real. Vi generosidade sem cobrar. Vi amor que não precisa se provar o tempo todo, porque ele simplesmente está lá — consistente, bonito, verdadeiro.</p>
+
+  <div class="quote reveal">Você me mostrou que o amor mais bonito é o que se constrói devagar, com cuidado, como se cada tijolo importasse.</div>
+
+  <div class="photo-slot reveal">
+    <label>
+      <input type="file" accept="image/*" onchange="addPhoto(this)">
+      <div class="placeholder">
+        <div class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          toque para adicionar uma foto
+        </div>
+        <img />
+      </div>
+    </label>
+    <p class="photo-caption">nós</p>
+  </div>
+
+  <div class="divider reveal"><span>II</span></div>
+
+  <!-- TODO: Substitua este texto pelo conteúdo real do pedido -->
+  <p class="reveal">Eu pensei muito em como fazer isso. Pensei em esperar mais tempo. Pensei em criar o momento perfeito. Mas então percebi: o momento perfeito não é o que o calendário diz. É o que o coração reconhece.</p>
+
+  <p class="reveal">E o meu coração reconhece você.</p>
+
+  <p class="reveal"><em>Reconhece na forma como você ri. No jeito que você cuida. Na coragem que você carrega. Na delicadeza com que você trata as coisas que importam.</em></p>
+
+  <div class="quote reveal">Reconhece em você o lar que eu quero construir.</div>
+
+  <div class="divider reveal"><span>III</span></div>
+
+  <!-- TODO: Substitua este texto pelo conteúdo real do pedido -->
+  <p class="reveal">Por isso, hoje, com o coração cheio e a certeza que só vem quando a coisa é certa, quero te fazer uma pergunta. Não porque precisamos de um papel ou de um ritual para confirmar o que já somos. Mas porque eu quero que você saiba, de forma clara, intencional e diante do universo inteiro:</p>
+
+  <p class="reveal"><strong>Você é a pessoa com quem eu quero passar a vida.</strong></p>
+
+  <p class="reveal">Você é quem eu escolho agora, e quem eu quero continuar escolhendo todos os dias. Você é o meu par. A minha parceira. O meu amor.</p>
+
+</main>
+
+<!-- ─── THE BIG QUESTION ─────────────────────────── -->
+<section class="proposal-section">
+  <div class="proposal-divider"></div>
+
+  <span class="proposal-ring reveal" aria-hidden="true">💍</span>
+
+  <h2 class="proposal-question reveal">
+    Você quer<br><em>casar comigo?</em>
+  </h2>
+
+  <p class="proposal-sub reveal">com todo o meu amor · Lucas</p>
+
+  <button class="yes-btn reveal" id="yes-btn" onclick="sayYes()">
+    <span class="ring-icon">💍</span>
+    Sim, eu quero!
+    <span class="ring-icon">💍</span>
+  </button>
+
+  <div id="yes-message">
+    <span class="yes-message-ring" aria-hidden="true">💍</span>
+    <p class="yes-message-text">Ela disse <em>sim!</em></p>
+    <p class="yes-message-sub">para sempre · com amor · 11/04/2026</p>
+  </div>
+</section>
+
+<div class="footer-nav">
+  <a href="carta-2-meses.html">← voltar para a carta de dois meses</a>
+</div>
+
+<script>
+  /* ─── ENTRY OVERLAY ─────────────────────── */
+  window.addEventListener('load', () => {
+    const overlay = document.getElementById('entry-overlay');
+    setTimeout(() => overlay.classList.add('fade-out'), 2200);
+    setTimeout(() => overlay.style.display = 'none', 3500);
+  });
+
+  /* ─── FALLING PETALS ─────────────────────── */
+  const PETALS = ['🌸', '🌹', '🌺', '💮', '🏵️'];
+  let petalInterval = null;
+
+  function createPetal() {
+    const petal = document.createElement('span');
+    petal.classList.add('petal');
+    petal.textContent = PETALS[Math.floor(Math.random() * PETALS.length)];
+    const size = Math.random() * 14 + 10;
+    const duration = Math.random() * 5 + 6;
+    const delay = Math.random() * 2;
+    const drift = (Math.random() - 0.5) * 120;
+    petal.style.cssText = `
+      left: ${Math.random() * 100}vw;
+      font-size: ${size}px;
+      animation-duration: ${duration}s;
+      animation-delay: ${delay}s;
+    `;
+    // horizontal drift via keyframe workaround using CSS variable trick
+    petal.style.setProperty('--drift', drift + 'px');
+    document.body.appendChild(petal);
+    petal.addEventListener('animationend', () => petal.remove());
+  }
+
+  function startPetals() {
+    createPetal();
+    petalInterval = setInterval(createPetal, 600);
+  }
+
+  // Start petals after overlay fades
+  setTimeout(startPetals, 2500);
+
+  /* ─── PHOTO UPLOAD ───────────────────────── */
+  function addPhoto(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const ph = input.closest('label').querySelector('.placeholder');
+      const img = ph.querySelector('img');
+      const hint = ph.querySelector('.hint');
+      img.src = e.target.result;
+      img.style.display = 'block';
+      if (hint) hint.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  /* ─── SAY YES ────────────────────────────── */
+  function sayYes() {
+    const btn = document.getElementById('yes-btn');
+    btn.classList.add('clicked');
+    btn.textContent = '💍 Sim! 💍';
+
+    // Burst particles from button
+    const rect = btn.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const symbols = ['💍', '❤️', '🌹', '✨', '💕', '🥂', '🌸', '💫', '🎉', '💖'];
+
+    for (let i = 0; i < 60; i++) {
+      setTimeout(() => {
+        const p = document.createElement('span');
+        p.classList.add('celebrate-particle');
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const dist = Math.random() * 280 + 80;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist - Math.random() * 200;
+        const rot = (Math.random() - 0.5) * 720;
+        const dur = Math.random() * 0.8 + 0.9;
+        p.style.cssText = `
+          left: ${cx}px;
+          top: ${cy}px;
+          --tx: ${tx}px;
+          --ty: ${ty}px;
+          --rot: ${rot}deg;
+          animation-duration: ${dur}s;
+          font-size: ${Math.random() * 16 + 12}px;
+        `;
+        p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        document.body.appendChild(p);
+        p.addEventListener('animationend', () => p.remove());
+      }, i * 18);
+    }
+
+    // More petals after yes
+    let extra = 0;
+    const extraInterval = setInterval(() => {
+      createPetal();
+      createPetal();
+      if (++extra > 15) clearInterval(extraInterval);
+    }, 200);
+
+    // Show the yes message
+    setTimeout(() => {
+      const msg = document.getElementById('yes-message');
+      msg.classList.add('visible');
+      msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 800);
+  }
+
+  /* ─── SCROLL REVEAL ──────────────────────── */
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.classList.add('hidden');
+      el.style.transitionDelay = (i % 3 * 0.08) + 's';
+      obs.observe(el);
+    });
+  }
+</script>
+</body>
+</html>

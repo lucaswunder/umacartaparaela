@@ -216,6 +216,59 @@
 
     .footer-nav a:hover { color: var(--accent); }
 
+    /* ─── SURPRISE SECTION ─────────────────── */
+    .surprise-section {
+      text-align: center;
+      padding: 3rem 2rem 8rem;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .surprise-hint {
+      font-family: 'Jost', Helvetica, Arial, sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      opacity: 0.6;
+    }
+
+    .surprise-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: none;
+      border: 1.5px solid var(--soft);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      padding: 1rem 2.2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      text-decoration: none;
+    }
+
+    .surprise-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(107,79,53,0.12);
+    }
+
+    .surprise-btn .heart {
+      font-size: 0.9rem;
+      transition: transform 0.35s ease;
+      display: inline-block;
+    }
+
+    .surprise-btn:hover .heart { transform: scale(1.3); }
+
     /* ─── PHOTO SLOTS ────────────────────────── */
     .photo-slot { margin: 4rem 0; }
     .photo-slot label { display: block; cursor: pointer; }
@@ -303,7 +356,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <a href="carta-1-mes.html" class="back-link">← voltar para a carta dela</a>
+  <a href="index.html" class="back-link">← voltar para a carta dela</a>
   <p class="hero-eyebrow">Uma resposta de amor</p>
   <h1 class="hero-title">Uma resposta<br><em>para nós.</em></h1>
   <p class="hero-sub">Lucas &nbsp;·&nbsp; 11/03/2026</p>
@@ -447,8 +500,18 @@
 
 </main>
 
+<!-- SURPRESA -->
+<div class="surprise-section reveal">
+  <p class="surprise-hint">a história continua</p>
+  <a href="carta-2-meses.html" class="surprise-btn">
+    <span class="heart">🖤</span>
+    dois meses de nós
+    <span class="heart">🖤</span>
+  </a>
+</div>
+
 <div class="footer-nav">
-  <a href="carta-1-mes.html">← voltar para a carta dela</a>
+  <a href="index.html">← voltar para a carta dela</a>
 </div>
 
 <script>
